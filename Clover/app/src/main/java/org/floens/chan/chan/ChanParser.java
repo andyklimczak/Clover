@@ -420,14 +420,14 @@ public class ChanParser {
                     value = id;
                     post.repliesTo.add(id);
 
-                    // Append OP when its a reply to OP
-                    if (id == post.resto) {
-                        key += " (OP)";
-                    }
-
                     // Append You when it's a reply to an saved reply
                     if (databaseManager.getDatabaseSavedReplyManager().isSaved(post.board, id)) {
                         key += " (You)";
+                    }
+
+                    // Append OP when its a reply to OP
+                    if (id == post.resto) {
+                        key += " (OP)";
                     }
                 }
             }
